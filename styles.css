@@ -124,6 +124,28 @@ h1 {
     gap: 1.5rem;
 }
 
+.input-group:not(.secondary-inputs) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 1.5rem;
+    grid-template-areas:
+        "task category"
+        "task priority"
+        "task date";
+}
+
+.input-group:not(.secondary-inputs) .input-field:nth-child(1) { grid-area: task; }
+.input-group:not(.secondary-inputs) .input-field:nth-child(2) { grid-area: category; }
+.input-group:not(.secondary-inputs) .input-field:nth-child(3) { grid-area: priority; }
+.input-group:not(.secondary-inputs) .input-field:nth-child(4) { grid-area: date; }
+
+.input-group:not(.secondary-inputs) .input-field:nth-child(1) input {
+    min-height: 130px;
+    font-size: 1.15rem;
+    padding: 1rem;
+}
+
 .secondary-inputs {
     margin-top: 0.5rem;
 }
@@ -561,15 +583,30 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    .input-group:not(.secondary-inputs) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "task"
+            "category"
+            "priority"
+            "date";
+    }
+
+    .input-group:not(.secondary-inputs) .input-field:nth-child(1) input {
+        min-height: 56px;
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
     .input-group {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .input-field {
         width: 100%;
     }
-    
+
     button#addTodo {
         width: 100%;
         margin-top: 1rem;
