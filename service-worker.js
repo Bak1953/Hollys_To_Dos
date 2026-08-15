@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'hollytodo-v2';
+const CACHE_NAME = 'hollytodo-v3';
 const ASSETS = [
   './',
   './index.html',
